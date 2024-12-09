@@ -1,0 +1,13 @@
+{
+  "HeroBanner": {
+    "title": "Presenta la tua startup, \nConnettiti con altri imprenditori",
+    "description": "Presenta idee, vota i progetti e fatti notare nei concorsi virtuali"
+  },
+  "SearchForm": {
+    "placeholder": "Cerca Startups..."
+  },
+  "LocaleSwitcher": {
+    "label": "Cambia lingua",
+    "locale": "{locale, select, it {\uD83C\uDDEE\uD83C\uDDF9 Italiano} en {🇺🇸 English} other {Unknown}}"
+  }
+}

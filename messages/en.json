@@ -1,0 +1,13 @@
+{
+  "HeroBanner": {
+    "title": "Pitch Your Startup, \nConnect with Entrepreneurs",
+    "description": "Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions"
+  },
+  "SearchForm": {
+    "placeholder": "Search Startups..."
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, it {\uD83C\uDDEE\uD83C\uDDF9 Italiano} en {🇺🇸 English} other {Unknown}}"
+  }
+}
