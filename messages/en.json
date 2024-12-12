@@ -1,7 +1,13 @@
 {
   "HeroBanner": {
     "title": "Pitch Your Startup, \nConnect with Entrepreneurs",
-    "description": "Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions"
+    "description": "Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions",
+    "searchResult": "Search results for {query}",
+    "allStartups": "All startups",
+    "noResults": "No results"
+  },
+  "StartupCard": {
+    "details": "Details"
   },
   "SearchForm": {
     "placeholder": "Search Startups..."

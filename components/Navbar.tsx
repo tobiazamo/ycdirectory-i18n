@@ -10,13 +10,13 @@ const Navbar = async () => {
   return (
     <header className="bg-white px-5 py-3 font-work-sans shadow-sm">
       <nav className="flex items-center justify-between">
-        <Link href="/public">
-          <Image src="/logo.png" alt="logo" width={50} height={50} />
+        <Link href={'/public'}>
+          <Image src="/logo.png" alt="logo" width={200} height={200} />
         </Link>
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
             <>
-              <Link href="/startup/create">
+              <Link href={'/startup/create'}>
                 <span>Create</span>
               </Link>
 
