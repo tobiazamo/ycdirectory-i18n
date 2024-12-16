@@ -3,7 +3,11 @@
     "title": "Presenta la tua startup, \nConnettiti con altri imprenditori",
     "description": "Presenta idee, vota i progetti e fatti notare nei concorsi virtuali",
     "searchResult": "Risultati di ricerca per {{query}}",
-    "allStartups": "Nessun risultato trovato"
+    "allStartups": "Tutte le startups",
+    "noResults": "Nessun risultato"
+  },
+  "StartupCard": {
+    "details": "Dettagli"
   },
   "SearchForm": {
     "placeholder": "Cerca Startups..."

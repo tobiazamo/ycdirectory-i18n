@@ -68,7 +68,7 @@
     }
 
     .card__grid {
-        @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
+        @apply grid xl:grid-cols-3 sm:grid-cols-2 gap-5;
     }
 
     .card__grid-sm {

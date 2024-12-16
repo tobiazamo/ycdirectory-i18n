@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import SearchForm from '@/components/SearchForm';
 import StartupCard from '@/components/StartupCard';
+import { client } from '@/sanity/lib/client';
+import { STARTUP_QUERY } from '@/sanity/lib/queries';
 
 export default async function Home({
   searchParams,
@@ -9,22 +11,10 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
   const t = await getTranslations('HeroBanner');
-  const posts = [
-    {
-      _id: 1,
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: 'Adrian' },
-      description: 'A description',
-      image:
-        'https://img.rolandberger.com/content_assets/content_images/captions/Roland_Berger-24_2195_Humanoid_robots-IT_image_caption_w768.jpg',
-      category: 'A category sample',
-      title: 'A sample title',
-    },
-  ];
+  const posts = await client.fetch(STARTUP_QUERY);
   return (
     <>
-      <section className={'pink__container'}>
+      <section className="pink__container">
         <h1 className="heading">{t('title')}</h1>
         <p className="sub-heading">{t('description')}</p>
         <SearchForm query={query} />
@@ -34,7 +24,7 @@ export default async function Home({
         <p className="text-30-semibold">
           {query ? t('searchResult', { query }) : t('allStartups')}
         </p>
-        <ul className="card_grid mt-7">
+        <ul className="card__grid mt-7">
           {posts?.length > 0 ? (
             posts.map((post: StartupTypeCard) => <StartupCard key={post?._id} post={post} />)
           ) : (

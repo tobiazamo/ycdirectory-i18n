@@ -1,10 +1,11 @@
 import React from 'react';
 import { formatDate } from '@/lib/utils';
 import { EyeIcon } from 'lucide-react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
+import { Category } from '@/app/studio/sanity.types';
 
 const StartupCard = async ({ post }: { post: StartupTypeCard }) => {
   const t = await getTranslations('StartupCard');
@@ -14,7 +15,7 @@ const StartupCard = async ({ post }: { post: StartupTypeCard }) => {
     views,
     author: { id: authorId, name },
     title,
-    category,
+    categories,
     _id,
     image,
     description,
@@ -53,9 +54,11 @@ const StartupCard = async ({ post }: { post: StartupTypeCard }) => {
         <img src={image} alt={'placeholder'} className={'startup-card__img'} />
       </Link>
       <div className="flex-between mt-5 gap-3">
-        <Link href={`/?query=${category.toLowerCase()}`}>
-          <p className="text-16-medium">{category}</p>
-        </Link>
+        {categories.map((category: Category) => (
+          <Link key={category.name} href={`/?query=${category?.name?.toLowerCase()}`}>
+            <p className="text-16-medium">{category.name}</p>
+          </Link>
+        ))}
         <Button className="startup-card__btn" asChild>
           <Link href={`/startup/${_id}`}>{t('details')}</Link>
         </Button>

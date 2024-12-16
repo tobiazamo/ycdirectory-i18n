@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import { X } from 'lucide-react';
+import { Link } from '@/i18n/routing';
 
 const SearchFormReset = () => {
   const reset = () => {

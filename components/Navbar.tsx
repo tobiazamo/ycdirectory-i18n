@@ -1,8 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { auth, signIn, signOut } from '@/auth';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
+import { Link } from '@/i18n/routing';
 
 const Navbar = async () => {
   const session = await auth();
