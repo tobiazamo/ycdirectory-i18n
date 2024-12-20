@@ -7,13 +7,16 @@ export const STARTUP_QUERY =
     slug,
     _createdAt,
     author -> {
-      _id, name, image, bio
+      _id, 
+      name, 
+      image, 
+      "bio": bio[_key == $locale][0].value,
     },
     views,
-    description,
+    "description": description[_key == $locale][0].value,
     categories[]->{
         _id,
-        name
+        "localizedName": localizedName[_key == $locale][0].value,
     },
     image
 }`);

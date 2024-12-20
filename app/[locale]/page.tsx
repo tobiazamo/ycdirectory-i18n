@@ -1,8 +1,9 @@
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import SearchForm from '@/components/SearchForm';
 import StartupCard from '@/components/StartupCard';
 import { client } from '@/sanity/lib/client';
 import { STARTUP_QUERY } from '@/sanity/lib/queries';
+import { StartupTypeCard } from '@/types/StartupTypeCard';
 
 export default async function Home({
   searchParams,
@@ -11,7 +12,8 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
   const t = await getTranslations('HeroBanner');
-  const posts = await client.fetch(STARTUP_QUERY);
+  const locale = await getLocale(); // Get locale first
+  const posts = await client.fetch(STARTUP_QUERY, { locale });
   return (
     <>
       <section className="pink__container">

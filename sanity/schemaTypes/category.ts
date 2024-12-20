@@ -9,6 +9,10 @@ export const category = defineType({
       name: 'name',
       type: 'string',
     }),
+    defineField({
+      name: 'localizedName',
+      type: 'internationalizedArrayString',
+    }),
   ],
   preview: {
     select: {

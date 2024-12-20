@@ -13,7 +13,7 @@ import { apiVersion, dataset, projectId } from './sanity/env';
 import { schema } from './sanity/schemaTypes';
 import { structure } from './sanity/structure';
 import { markdownSchema } from 'sanity-plugin-markdown';
-import { I18nFields } from 'sanity-plugin-i18n-fields';
+import { internationalizedArray } from 'sanity-plugin-internationalized-array';
 
 export default defineConfig({
   basePath: '/studio',
@@ -27,14 +27,13 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     markdownSchema(),
-    I18nFields({
-      ui: {
-        position: 'bottom',
-      },
-      locales: [
-        { code: 'en', label: '🇺🇸', title: 'English', default: true },
-        { code: 'it', label: '🇮🇹', title: 'Italian' },
+    internationalizedArray({
+      languages: [
+        { id: 'en', title: 'English' },
+        { id: 'it', title: 'Italian' },
       ],
+      defaultLanguages: ['en'],
+      fieldTypes: ['string'],
     }),
   ],
 });

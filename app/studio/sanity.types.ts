@@ -132,6 +132,13 @@ export type Category = {
   _updatedAt: string;
   _rev: string;
   name?: string;
+  localizedName?:
+    | string
+    | Array<
+        {
+          _key: string;
+        } & InternationalizedArrayStringValue
+      >;
 };
 
 export type Startup = {
@@ -149,7 +156,13 @@ export type Startup = {
     [internalGroqTypeReferenceTo]?: 'author';
   };
   views?: number;
-  description?: string;
+  description?:
+    | string
+    | Array<
+        {
+          _key: string;
+        } & InternationalizedArrayStringValue
+      >;
   categories?: Array<{
     _ref: string;
     _type: 'reference';
@@ -178,8 +191,23 @@ export type Author = {
   username?: string;
   email?: string;
   image?: string;
-  bio?: string;
+  bio?: Array<
+    {
+      _key: string;
+    } & InternationalizedArrayStringValue
+  >;
 };
+
+export type InternationalizedArrayStringValue = {
+  _type: 'internationalizedArrayStringValue';
+  value?: string;
+};
+
+export type InternationalizedArrayString = Array<
+  {
+    _key: string;
+  } & InternationalizedArrayStringValue
+>;
 
 export type Markdown = string;
 
@@ -198,5 +226,7 @@ export type AllSanitySchemaTypes =
   | Startup
   | Slug
   | Author
+  | InternationalizedArrayStringValue
+  | InternationalizedArrayString
   | Markdown;
 export declare const internalGroqTypeReferenceTo: unique symbol;

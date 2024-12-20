@@ -27,7 +27,7 @@ export const startup = defineType({
     }),
     defineField({
       name: 'description',
-      type: 'text',
+      type: 'internationalizedArrayString',
     }),
     defineField({
       name: 'categories',
