@@ -9,6 +9,11 @@
   "StartupCard": {
     "details": "Details"
   },
+  "StartupDetail": {
+    "pitchDetails": "Pitch Details",
+    "noPitch": "No details provided",
+    "views": "{count, plural, =0 {No views} =1 {One view} other {# views}}"
+  },
   "SearchForm": {
     "placeholder": "Search Startups..."
   },

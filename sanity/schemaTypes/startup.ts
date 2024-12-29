@@ -1,4 +1,7 @@
 import { defineField, defineType } from '@sanity/types';
+import { routing } from '@/i18n/routing';
+
+const locales = routing.locales;
 
 export const startup = defineType({
   name: 'startup',
@@ -44,9 +47,11 @@ export const startup = defineType({
       type: 'url',
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'pitch',
-      type: 'markdown',
-    }),
+    ...locales.map((locale) =>
+      defineField({
+        name: `pitch_${locale}`,
+        type: 'markdown',
+      }),
+    ),
   ],
 });

@@ -45,11 +45,13 @@ const StartupCard = async ({ post }: { post: StartupTypeCard }) => {
         <img src={image} alt={'placeholder'} className={'startup-card__img'} />
       </Link>
       <div className="flex-between mt-5 gap-3">
-        {categories?.map((category: CategoryType) => (
-          <Link key={category._id} href={`/?query=${category.localizedName?.toLowerCase()}`}>
-            <p className="text-16-medium">{category.localizedName}</p>
-          </Link>
-        ))}
+        <div>
+          {categories?.map((category: CategoryType) => (
+            <Link key={category._id} href={`/?query=${category.localizedName?.toLowerCase()}`}>
+              <p className="text-16-medium">{category.localizedName}</p>
+            </Link>
+          ))}
+        </div>
         <Button className="startup-card__btn" asChild>
           <Link href={`/startup/${_id}`}>{t('details')}</Link>
         </Button>

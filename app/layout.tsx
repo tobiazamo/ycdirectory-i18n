@@ -4,6 +4,7 @@ import './globals.css';
 import 'easymde/dist/easymde.min.css';
 import React from 'react';
 import { getLocale } from 'next-intl/server';
+import { SanityLive } from '@/sanity/lib/live';
 
 const workSans = localFont({
   src: [
@@ -68,7 +69,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html className="h-full" lang={locale}>
-      <body className={workSans.variable}>{children}</body>
+      <body className={workSans.variable}>
+        {children}
+        <SanityLive />
+      </body>
     </html>
   );
 }
