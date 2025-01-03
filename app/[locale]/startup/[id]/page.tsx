@@ -30,7 +30,10 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   const t = await getTranslations('StartupDetail');
 
-  const parsedContent = md.render(post[`pitch_${locale.toLowerCase()}`] || '');
+  let parsedContent;
+  if (locale) {
+    parsedContent = md.render(post[`pitch_${locale.toLowerCase()}`] || '');
+  }
 
   return (
     <>
@@ -49,17 +52,22 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         />
         <div className="mx-auto mt-10 max-w-4xl space-y-5">
           <div className="flex-between gap-5">
-            <Link href={`/user/${post.author._id}`} className="mb-3 flex items-center gap-2">
-              <Image
-                src={post.author.image}
-                width={64}
-                height={64}
-                alt={post.author.name}
-                className="aspect-square rounded-full drop-shadow-lg"
-              />
+            <Link href={`/user/${post.author?._id}`} className="mb-3 flex items-center gap-2">
+              {post.author?.image ? (
+                <Image
+                  src={post.author?.image}
+                  width={64}
+                  height={64}
+                  alt={post.author?.name}
+                  className="aspect-square rounded-full drop-shadow-lg"
+                />
+              ) : (
+                <Skeleton className="view__skeleton" />
+              )}
+
               <div>
-                <p className="text-20-medium">{post.author.name}</p>
-                <p className="text-16-medium text-black-300">@{post.author.username}</p>
+                <p className="text-20-medium">{post.author?.name}</p>
+                <p className="text-16-medium text-black-300">@{post.author?.username}</p>
               </div>
             </Link>
 

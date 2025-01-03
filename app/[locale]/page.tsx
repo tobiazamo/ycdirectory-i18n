@@ -14,6 +14,7 @@ export default async function Home({
   const t = await getTranslations('HeroBanner');
   const locale = await getLocale(); // Get locale first
   // const posts = await client.fetch(STARTUP_QUERY, { locale });
+  // const session = await auth();
   const { data: posts } = await sanityFetch({
     query: STARTUP_QUERY,
     params: { locale, search: query || null },

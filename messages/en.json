@@ -9,6 +9,36 @@
   "StartupCard": {
     "details": "Details"
   },
+  "StartupForm": {
+    "title": "Title",
+    "titleInputPlaceholder": "Startup Title",
+    "description": "Description",
+    "descriptionTextareaPlaceholder": "Startup Description",
+    "category": "Category",
+    "categoryHelper": "Multiple categories must be separated by a comma (,)",
+    "categoryInputPlaceholder": "Startup Categories (Tech, Health, Education...)",
+    "imageLink": "Image URL",
+    "imageLinkInputPlaceholder": "Startup Image URL",
+    "pitch": "Pitch",
+    "pitchEditorPlaceholder": "Briefly describe your idea and what problems it solves, or what innovations brings into the table",
+    "submitting": "Submitting...",
+    "submitYourPitch": "Submit Your Pitch",
+    "error": "Error",
+    "checkInputs": "Please check your inputs and try again",
+    "unexpectedError": "Some unexpected error has occurred",
+    "validationFailed": "Validation failed",
+    "success": "Success",
+    "pitchCreated": "Your startup pitch was created successfully",
+    "notSignedIn": "Not signed in"
+  },
+  "StartupCreate": {
+    "submitStartup": "Submit your Startup"
+  },
+  "Navbar": {
+    "create": "Create",
+    "login": "Login",
+    "signOut": "Sign out"
+  },
   "StartupDetail": {
     "pitchDetails": "Pitch Details",
     "noPitch": "No details provided",

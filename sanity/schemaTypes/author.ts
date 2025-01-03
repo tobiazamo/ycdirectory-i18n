@@ -29,7 +29,7 @@ export const author = defineType({
     }),
     defineField({
       name: 'bio',
-      type: 'internationalizedArrayString',
+      type: 'text',
     }),
   ],
   preview: {

@@ -191,11 +191,7 @@ export type Author = {
   username?: string;
   email?: string;
   image?: string;
-  bio?: Array<
-    {
-      _key: string;
-    } & InternationalizedArrayStringValue
-  >;
+  bio?: string;
 };
 
 export type InternationalizedArrayStringValue = {

@@ -40,7 +40,7 @@ locales.forEach((locale) => {
         name, 
         username,
         image, 
-        "bio": bio[_key == $locale][0].value,
+        bio,
       },
       views,
       "description": description[_key == $locale][0].value,
@@ -53,8 +53,28 @@ locales.forEach((locale) => {
   }`);
 });
 
+export const CATEGORY_BY_NAME_QUERY = `
+  *[_type == "category" && name == $name][0] {
+    _id,
+    name,
+    "localizedName": localizedName[_key == $locale][0].value,
+  }
+`;
+
 export const STARTUP_VIEWS_QUERY = defineQuery(
   `*[_type=="startup" && _id==$id][0] {
       _id, views
     }`,
 );
+
+export const AUTHOR_BY_GITHUB_ID_QUERY = defineQuery(`
+  *[_type=="author" && id==$id][0] {
+    _id,
+    id,
+    name,
+    username,
+    email,
+    image,
+    bio
+  }
+`);
