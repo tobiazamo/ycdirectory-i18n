@@ -2,20 +2,27 @@ import React, { Suspense } from 'react';
 import { client } from '@/sanity/lib/client';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { QUERIES } from '@/sanity/lib/queries';
+import {
+  OTHER_STARTUPS_BY_AUTHOR_QUERY,
+  OTHER_STARTUPS_BY_SAME_CATEGORY_QUERY,
+  QUERIES,
+} from '@/sanity/lib/queries';
 import { formatDate } from '@/lib/utils';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
-import { CategoryType } from '@/types/StartupTypeCard';
+import { CategoryType, StartupTypeCard } from '@/types/StartupTypeCard';
 import markdownIt from 'markdown-it';
 import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
+import StartupCard from '@/components/StartupCard';
+import { auth } from '@/auth';
 
 const md = markdownIt();
 
 export const experimental_ppr = true;
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const session = await auth();
   const id = (await params).id;
   const locale = await getLocale();
 
@@ -25,6 +32,22 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     id,
     locale,
   });
+
+  const categoryIds: string[] =
+    post?.categories?.map((category: CategoryType) => category._id) || [];
+
+  const [otherStartupsBySameAuthor, otherStartupsBySameCategory] = await Promise.all([
+    client.fetch(OTHER_STARTUPS_BY_AUTHOR_QUERY, {
+      id: post?.author?._id,
+      postToExclude: id,
+      locale,
+    }),
+    client.fetch(OTHER_STARTUPS_BY_SAME_CATEGORY_QUERY, {
+      categoryIds: categoryIds,
+      postToExclude: id,
+      locale,
+    }),
+  ]);
 
   if (!post) return notFound();
 
@@ -37,6 +60,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
+      {session?.id === post.author._id && <Link href={`/startup/${post._id}/edit`}>Edit</Link>}
       <section className="pink__container min-h-56">
         <p className="tag">{await formatDate(post._createdAt)}</p>
         <h1 className="heading">{post.title}</h1>
@@ -90,8 +114,33 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           )}
         </div>
 
-        <hr className="divider" />
+        {otherStartupsBySameAuthor?.length > 0 && (
+          <>
+            <hr className="divider" />
+            <div className="mx-auto max-w-4xl">
+              <p className="text-30-semibold">{t('otherStartupsBySameAuthor')}</p>
+              <ul className="card__grid-sm mt-7">
+                {otherStartupsBySameAuthor.map((post: StartupTypeCard) => (
+                  <StartupCard key={post._id} post={post} />
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
 
+        {otherStartupsBySameCategory?.length > 0 && (
+          <>
+            <hr className="divider" />
+            <div className="mx-auto max-w-4xl">
+              <p className="text-30-semibold">{t('otherStartupsBySameCategory')}</p>
+              <ul className="card__grid-sm mt-7">
+                {otherStartupsBySameCategory.map((post: StartupTypeCard) => (
+                  <StartupCard key={post._id} post={post} />
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
         <Suspense fallback={<Skeleton className="view__skeleton" />}>
           <View id={id} />
         </Suspense>

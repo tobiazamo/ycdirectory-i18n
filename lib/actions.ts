@@ -13,6 +13,8 @@ export const createPitch = async (
   state: any,
   formData: FormData,
   pitches: { [key: string]: string },
+  isUpdate?: boolean,
+  startupId?: string,
 ) => {
   const session = await auth();
   const t = await getTranslations('StartupForm');
@@ -79,9 +81,15 @@ export const createPitch = async (
       ),
     };
 
-    console.log(startup);
-
-    const result = await writeClient.create({ _type: 'startup', ...startup });
+    let result;
+    if (isUpdate && startupId) {
+      result = writeClient
+        .patch(startupId)
+        .set({ ...startup })
+        .commit();
+    } else {
+      result = await writeClient.create({ _type: 'startup', ...startup });
+    }
 
     return parseServerActionResponse({
       ...result,

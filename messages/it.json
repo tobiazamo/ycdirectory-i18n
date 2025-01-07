@@ -20,7 +20,7 @@
     "imageLink": "URL Immagine",
     "imageLinkInputPlaceholder": "URL dell'immagine Startup",
     "pitch": "Pitch (proposta)",
-    "pitchEditorPlaceholder": "Descrivete brevemente la vostra idea e i problemi che risolve, o le innovazioni che apporta al tavolo",
+    "pitchEditorPlaceholder": "Descrivete brevemente la vostra idea",
     "submitting": "Invio...",
     "submitYourPitch": "Invia la tua proposta",
     "error": "Errore",
@@ -29,10 +29,20 @@
     "validationFailed": "Validazione fallita",
     "success": "Successo!",
     "pitchCreated": "Il vostro pitch di startup è stato creato con successo",
-    "notSignedIn": "Utente non loggato"
+    "notSignedIn": "Utente non loggato",
+    "pitchUpdated": "Pitch aggiornato",
+    "updateYourPitch": "Aggiorna il tuo pitch"
   },
   "StartupCreate": {
-    "submitStartup": "Invia la tua startup"
+    "submitStartup": "Invia la tua startup",
+    "editStartup": "Modifica startup"
+  },
+  "UserDetailsPage": {
+    "yourStartups": "Le tue startups",
+    "allStartups": "Tutte le startups"
+  },
+  "UserStartups": {
+    "noPostsYet": "Nessuna startup pubblicata"
   },
   "Navbar": {
     "create": "Crea Startup",
@@ -42,7 +52,9 @@
   "StartupDetail": {
     "pitchDetails": "Dettagli della proposta",
     "noPitch": "Non sono stati forniti dettagli",
-    "views": "{count, plural, =0 {Nessuna visualizzazione} =1 {una visualizzazione} other {# visualizzazioni}}"
+    "views": "{count, plural, =0 {Nessuna visualizzazione} =1 {una visualizzazione} other {# visualizzazioni}}",
+    "otherStartupsBySameAuthor": "Altre startup dallo stesso autore",
+    "otherStartupsBySameCategory": "Altre startup della stessa categoria"
   },
   "SearchForm": {
     "placeholder": "Cerca Startups..."

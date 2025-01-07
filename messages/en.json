@@ -29,10 +29,16 @@
     "validationFailed": "Validation failed",
     "success": "Success",
     "pitchCreated": "Your startup pitch was created successfully",
-    "notSignedIn": "Not signed in"
+    "notSignedIn": "Not signed in",
+    "pitchUpdated": "Pitch updated",
+    "updateYourPitch": "Update your pitch"
   },
   "StartupCreate": {
-    "submitStartup": "Submit your Startup"
+    "submitStartup": "Submit your Startup",
+    "editStartup": "Edit startup"
+  },
+  "UserStartups": {
+    "noPostsYet": "No posts yet"
   },
   "Navbar": {
     "create": "Create",
@@ -42,13 +48,15 @@
   "StartupDetail": {
     "pitchDetails": "Pitch Details",
     "noPitch": "No details provided",
-    "views": "{count, plural, =0 {No views} =1 {One view} other {# views}}"
+    "views": "{count, plural, =0 {No views} =1 {One view} other {# views}}",
+    "otherStartupsBySameAuthor": "Other startups by same author",
+    "otherStartupsBySameCategory": "Other startups by same category"
   },
   "SearchForm": {
     "placeholder": "Search Startups..."
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, it {\uD83C\uDDEE\uD83C\uDDF9 Italiano} en {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, it {IT} en {EN} other {Unknown}}"
   }
 }
