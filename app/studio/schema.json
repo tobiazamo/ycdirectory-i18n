@@ -888,7 +888,14 @@
         },
         "optional": true
       },
-      "pitch": {
+      "pitch_en": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "pitch_it": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -1000,22 +1007,7 @@
       "bio": {
         "type": "objectAttribute",
         "value": {
-          "type": "array",
-          "of": {
-            "type": "object",
-            "attributes": {
-              "_key": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                }
-              }
-            },
-            "rest": {
-              "type": "inline",
-              "name": "internationalizedArrayStringValue"
-            }
-          }
+          "type": "string"
         },
         "optional": true
       }

@@ -16,6 +16,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import StartupCard from '@/components/StartupCard';
 import { auth } from '@/auth';
+import { Button } from '@/components/ui/button';
 
 const md = markdownIt();
 
@@ -60,11 +61,16 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
-      {session?.id === post.author._id && <Link href={`/startup/${post._id}/edit`}>Edit</Link>}
       <section className="pink__container min-h-56">
         <p className="tag">{await formatDate(post._createdAt)}</p>
         <h1 className="heading">{post.title}</h1>
         <p className="sub-heading max-w-5xl">{post.description}</p>
+
+        {session?.id === post.author._id && (
+          <Button className="startup-card__btn mt-4" asChild>
+            <Link href={`/startup/${post._id}/edit`}>{t('editStartup')}</Link>
+          </Button>
+        )}
       </section>
       <section className="section__container">
         <Image

@@ -54,7 +54,8 @@
     "noPitch": "Non sono stati forniti dettagli",
     "views": "{count, plural, =0 {Nessuna visualizzazione} =1 {una visualizzazione} other {# visualizzazioni}}",
     "otherStartupsBySameAuthor": "Altre startup dallo stesso autore",
-    "otherStartupsBySameCategory": "Altre startup della stessa categoria"
+    "otherStartupsBySameCategory": "Altre startup della stessa categoria",
+    "editStartup": "Modifica la tua startup"
   },
   "SearchForm": {
     "placeholder": "Cerca Startups..."

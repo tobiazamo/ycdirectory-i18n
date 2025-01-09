@@ -132,13 +132,11 @@ export type Category = {
   _updatedAt: string;
   _rev: string;
   name?: string;
-  localizedName?:
-    | string
-    | Array<
-        {
-          _key: string;
-        } & InternationalizedArrayStringValue
-      >;
+  localizedName?: Array<
+    {
+      _key: string;
+    } & InternationalizedArrayStringValue
+  >;
 };
 
 export type Startup = {
@@ -156,13 +154,11 @@ export type Startup = {
     [internalGroqTypeReferenceTo]?: 'author';
   };
   views?: number;
-  description?:
-    | string
-    | Array<
-        {
-          _key: string;
-        } & InternationalizedArrayStringValue
-      >;
+  description?: Array<
+    {
+      _key: string;
+    } & InternationalizedArrayStringValue
+  >;
   categories?: Array<{
     _ref: string;
     _type: 'reference';
@@ -171,7 +167,8 @@ export type Startup = {
     [internalGroqTypeReferenceTo]?: 'category';
   }>;
   image?: string;
-  pitch?: string;
+  pitch_en?: string;
+  pitch_it?: string;
 };
 
 export type Slug = {

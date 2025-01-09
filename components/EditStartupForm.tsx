@@ -13,12 +13,12 @@ import { useToast } from '@/hooks/use-toast';
 import { routing, useRouter } from '@/i18n/routing';
 import { client } from '@/sanity/lib/client';
 import { STARTUP_BY_ID_ALL_LOCALES } from '@/sanity/lib/queries';
-import { CategoryType } from '@/types/StartupTypeCard';
 import { createPitch } from '@/lib/actions';
+import { CategoryType, StartupTypeCard } from '@/types/StartupTypeCard';
 
 const EditStartupForm = ({ startupId }: { startupId: string }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [startup, setStartup] = useState(null);
+  const [startup, setStartup] = useState<StartupTypeCard>();
   const [pitches, setPitches] = useState<{ [key: string]: string }>({});
 
   const { toast } = useToast();
@@ -146,7 +146,11 @@ const EditStartupForm = ({ startupId }: { startupId: string }) => {
             name={`description_${locale}`}
             className="startup-form__textarea"
             required
-            defaultValue={startup.description.find((desc) => desc._key === locale).value}
+            defaultValue={
+              Array.isArray(startup.description)
+                ? startup.description?.find((desc) => desc._key === locale)?.value
+                : startup.description
+            }
             placeholder={t('descriptionTextareaPlaceholder')}
           ></Textarea>
           {errors.description && <p className="startup-form__error">{errors.description}</p>}
@@ -163,7 +167,7 @@ const EditStartupForm = ({ startupId }: { startupId: string }) => {
           name="category"
           className="startup-form__input"
           required
-          defaultValue={startup.categories.map((category: CategoryType) => category.name)}
+          defaultValue={startup.categories?.map((category: CategoryType) => category.localizedName)}
           placeholder={t('categoryInputPlaceholder')}
         ></Input>
         {errors.category && <p className="startup-form__error">{errors.category}</p>}
