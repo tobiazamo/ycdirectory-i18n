@@ -4,11 +4,11 @@ import { client } from '@/sanity/lib/client';
 import { AUTHOR_BY_GITHUB_ID_QUERY } from '@/sanity/lib/queries';
 import { writeClient } from '@/sanity/lib/write-client';
 
-// TODO: Check WTF is wrong with this NextAuth typescript error
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
   callbacks: {
-    async signIn({ user: { name, email, image }, profile: { id, login, bio } }) {
+    async signIn({ user: { name, email, image }, profile }) {
+      const { id, login, bio } = profile || {};
       const existingUser = await client
         .withConfig({ useCdn: false })
         .fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
