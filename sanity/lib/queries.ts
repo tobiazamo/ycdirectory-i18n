@@ -18,15 +18,22 @@ export const STARTUP_QUERY = defineQuery(`
       "bio": bio[_key == $locale][0].value,
     },
     views,
-    "description": description[_key == $locale][0].value,
+    "description": coalesce(
+        description[_key == $locale][0].value,
+        description[_key == "en"][0].value
+      ),
     categories[]->{
         _id,
-        "localizedName": localizedName[_key == $locale][0].value,
+        "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
     },
     image
 }`);
 
 export const QUERIES: QueryMap = {};
+
 locales.forEach((locale) => {
   const queryKey = `STARTUP_QUERY_BY_ID_PITCH_${locale.toUpperCase()}`;
   QUERIES[queryKey] = defineQuery(`
@@ -43,21 +50,34 @@ locales.forEach((locale) => {
         bio,
       },
       views,
-      "description": description[_key == $locale][0].value,
+      "description": coalesce(
+        description[_key == $locale][0].value,
+        description[_key == "en"][0].value
+      ),
       categories[]->{
-          _id,
-          "localizedName": localizedName[_key == $locale][0].value,
+        _id,
+        "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
       },
       image,
-      pitch_${locale.toLowerCase()}
-  }`);
+      "pitch_${locale.toLowerCase()}": coalesce(
+        pitch_${locale.toLowerCase()},
+        pitch_en
+      )
+    }
+  `);
 });
 
 export const CATEGORY_BY_NAME_QUERY = `
   *[_type == "category" && name == $name][0] {
     _id,
     name,
-    "localizedName": localizedName[_key == $locale][0].value,
+    "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
   }
 `;
 
@@ -104,10 +124,16 @@ export const STARTUPS_BY_AUTHOR_QUERY = defineQuery(`
       "bio": bio[_key == $locale][0].value,
     },
     views,
-    "description": description[_key == $locale][0].value,
+    "description": coalesce(
+        description[_key == $locale][0].value,
+        description[_key == "en"][0].value
+      ),
     categories[]->{
         _id,
-        "localizedName": localizedName[_key == $locale][0].value,
+        "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
     },
     image
 }`);
@@ -125,10 +151,16 @@ export const OTHER_STARTUPS_BY_AUTHOR_QUERY = defineQuery(`
       "bio": bio[_key == $locale][0].value,
     },
     views,
-    "description": description[_key == $locale][0].value,
+    "description": coalesce(
+        description[_key == $locale][0].value,
+        description[_key == "en"][0].value
+      ),
     categories[]->{
         _id,
-        "localizedName": localizedName[_key == $locale][0].value,
+        "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
     },
     image
 }`);
@@ -146,10 +178,16 @@ export const OTHER_STARTUPS_BY_SAME_CATEGORY_QUERY = defineQuery(`
       "bio": bio[_key == $locale][0].value,
     },
     views,
-    "description": description[_key == $locale][0].value,
+    "description": coalesce(
+        description[_key == $locale][0].value,
+        description[_key == "en"][0].value
+      ),
     categories[]->{
       _id,
-      "localizedName": localizedName[_key == $locale][0].value,
+      "localizedName": coalesce(
+          localizedName[_key == $locale][0].value,
+          localizedName[_key == "en"][0].value
+        )
     },
     image
   }
@@ -177,5 +215,6 @@ export const STARTUP_BY_ID_ALL_LOCALES = defineQuery(`
       },
       image,
       pitch_en,
-      pitch_it
+      pitch_it,
+      pitch_fi
   }`);

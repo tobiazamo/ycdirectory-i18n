@@ -1,0 +1,67 @@
+{
+  "HeroBanner": {
+    "title": "Esittele Startupisi, \nYhdistä yrittäjiin",
+    "description": "Lähetä ideoita, äänestä esityksiä ja tule huomatuksi virtuaalisissa kilpailuissa",
+    "searchResult": "Hakutulokset haulle {query}",
+    "allStartups": "Kaikki startupit",
+    "noResults": "Ei tuloksia"
+  },
+  "StartupCard": {
+    "details": "Tiedot"
+  },
+  "StartupForm": {
+    "title": "Otsikko",
+    "titleInputPlaceholder": "Startupin otsikko",
+    "description": "Kuvaus",
+    "descriptionTextareaPlaceholder": "Startupin kuvaus",
+    "category": "Kategoria",
+    "categoryHelper": "Useat kategoriat erotetaan pilkulla (,)",
+    "categoryInputPlaceholder": "Startupin kategoriat (Teknologia, Terveys, Koulutus...)",
+    "imageLink": "Kuvan URL",
+    "imageLinkInputPlaceholder": "Startupin kuvan URL",
+    "pitch": "Esitys",
+    "pitchEditorPlaceholder": "Kuvaile lyhyesti ideasi ja mitä ongelmia se ratkaisee tai mitä innovaatioita se tuo pöytään",
+    "submitting": "Lähetetään...",
+    "submitYourPitch": "Lähetä esityksesi",
+    "error": "Virhe",
+    "checkInputs": "Tarkista syötteet ja yritä uudelleen",
+    "unexpectedError": "Tapahtui odottamaton virhe",
+    "validationFailed": "Validointi epäonnistui",
+    "success": "Onnistui",
+    "pitchCreated": "Startup-esityksesi luotiin onnistuneesti",
+    "notSignedIn": "Ei kirjautuneena",
+    "pitchUpdated": "Esitys päivitetty",
+    "updateYourPitch": "Päivitä esityksesi"
+  },
+  "StartupCreate": {
+    "submitStartup": "Lähetä startupisi",
+    "editStartup": "Muokkaa startupia"
+  },
+  "UserDetailsPage": {
+    "yourStartups": "Startuppisi",
+    "allStartups": "Kaikki startupit"
+  },
+  "UserStartups": {
+    "noPostsYet": "Ei julkaisuja vielä"
+  },
+  "Navbar": {
+    "create": "Luo",
+    "login": "Kirjaudu sisään",
+    "signOut": "Kirjaudu ulos"
+  },
+  "StartupDetail": {
+    "pitchDetails": "Esityksen tiedot",
+    "noPitch": "Tietoja ei ole annettu",
+    "views": "{count, plural, =0 {Ei katselukertoja} =1 {Yksi katselukerta} other {# katselukertaa}}",
+    "otherStartupsBySameAuthor": "Muita startuppeja samalta tekijältä",
+    "otherStartupsBySameCategory": "Muita startuppeja samasta kategoriasta",
+    "editStartup": "Muokkaa startupiasi"
+  },
+  "SearchForm": {
+    "placeholder": "Hae startuppeja..."
+  },
+  "LocaleSwitcher": {
+    "label": "Vaihda kieli",
+    "locale": "{locale, select, it {IT} en {EN} fi {FI} other {Unknown}}"
+  }
+}

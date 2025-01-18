@@ -62,6 +62,6 @@
   },
   "LocaleSwitcher": {
     "label": "Cambia lingua",
-    "locale": "{locale, select, it {\uD83C\uDDEE\uD83C\uDDF9 Italiano} en {🇺🇸 English} other {Unknown}}"
+    "locale": "{locale, select, it {IT} en {EN} fi {FI} other {Unknown}}"
   }
 }

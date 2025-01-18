@@ -37,6 +37,10 @@
     "submitStartup": "Submit your Startup",
     "editStartup": "Edit startup"
   },
+  "UserDetailsPage": {
+    "yourStartups": "Your startups",
+    "allStartups": "All startups"
+  },
   "UserStartups": {
     "noPostsYet": "No posts yet"
   },
@@ -58,6 +62,6 @@
   },
   "LocaleSwitcher": {
     "label": "Change language",
-    "locale": "{locale, select, it {IT} en {EN} other {Unknown}}"
+    "locale": "{locale, select, it {IT} en {EN} fi {FI} other {Unknown}}"
   }
 }

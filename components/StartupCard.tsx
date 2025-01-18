@@ -47,7 +47,13 @@ const StartupCard = async ({ post }: { post: StartupTypeCard }) => {
       </div>
       <Link href={`/startup/${_id}`}>
         <p className={'startup-card__desc'}>{description}</p>
-        <img src={image} alt={'placeholder'} className={'startup-card__img'} />
+        <Image
+          width={276}
+          height={164}
+          src={image ? image : 'https://placehold.co/276x164?text=No+Startup+Image'}
+          alt={title ? title : 'startup image'}
+          className={'startup-card__img'}
+        />
       </Link>
       <div className="flex-between mt-5 gap-3">
         <div>

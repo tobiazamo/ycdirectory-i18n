@@ -31,6 +31,7 @@ export default defineConfig({
       languages: [
         { id: 'en', title: 'English' },
         { id: 'it', title: 'Italian' },
+        { id: 'fi', title: 'Finnish' },
       ],
       defaultLanguages: ['en'],
       fieldTypes: ['string'],

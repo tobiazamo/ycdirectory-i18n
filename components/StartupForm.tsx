@@ -124,7 +124,6 @@ const StartupForm = () => {
             id={`description_${locale}`}
             name={`description_${locale}`}
             className="startup-form__textarea"
-            required
             placeholder={t('descriptionTextareaPlaceholder')}
           ></Textarea>
           {errors.description && <p className="startup-form__error">{errors.description}</p>}
@@ -153,7 +152,6 @@ const StartupForm = () => {
           id="imageLink"
           name="imageLink"
           className="startup-form__input"
-          required
           placeholder={t('imageLinkInputPlaceholder')}
         ></Input>
         {errors.imageLink && <p className="startup-form__error">{errors.imageLink}</p>}

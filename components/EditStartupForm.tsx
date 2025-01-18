@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea';
 import MDEditor from '@uiw/react-md-editor';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
-import { formSchema } from '@/lib/validation';
 import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { routing, useRouter } from '@/i18n/routing';
@@ -15,6 +14,7 @@ import { client } from '@/sanity/lib/client';
 import { STARTUP_BY_ID_ALL_LOCALES } from '@/sanity/lib/queries';
 import { createPitch } from '@/lib/actions';
 import { CategoryType, StartupTypeCard } from '@/types/StartupTypeCard';
+import { formSchema } from '@/lib/validation';
 
 const EditStartupForm = ({ startupId }: { startupId: string }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -145,7 +145,6 @@ const EditStartupForm = ({ startupId }: { startupId: string }) => {
             id={`description_${locale}`}
             name={`description_${locale}`}
             className="startup-form__textarea"
-            required
             defaultValue={
               Array.isArray(startup.description)
                 ? startup.description?.find((desc) => desc._key === locale)?.value
@@ -180,7 +179,6 @@ const EditStartupForm = ({ startupId }: { startupId: string }) => {
           id="imageLink"
           name="imageLink"
           className="startup-form__input"
-          required
           defaultValue={startup.image}
           placeholder={t('imageLinkInputPlaceholder')}
         ></Input>
