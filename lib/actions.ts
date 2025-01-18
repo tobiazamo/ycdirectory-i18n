@@ -10,7 +10,7 @@ import { CATEGORY_BY_NAME_QUERY } from '@/sanity/lib/queries';
 import { routing } from '@/i18n/routing';
 
 export const createPitch = async (
-  state: any,
+  state: Record<string, unknown>,
   formData: FormData,
   pitches: { [key: string]: string },
   isUpdate?: boolean,
