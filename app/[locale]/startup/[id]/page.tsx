@@ -86,7 +86,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         )}
 
         <div className="mx-auto mt-10 max-w-4xl space-y-5">
-          <div className="flex-between gap-5">
+          <div className="flex-between flex-col gap-5 md:flex-row">
             <Link href={`/user/${post.author?._id}`} className="mb-3 flex items-center gap-2">
               {post.author?.image ? (
                 <Image
@@ -106,7 +106,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               </div>
             </Link>
 
-            <div className="flex gap-1">
+            <div className="flex flex-1 flex-wrap justify-center gap-1 md:justify-end">
               {post.categories?.map((category: CategoryType) => (
                 <p key={category._id} className="category-tag">
                   {category.localizedName}
@@ -124,6 +124,10 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             <p className="no-result">{t('noPitch')}</p>
           )}
         </div>
+
+        <Suspense fallback={<Skeleton className="view__skeleton" />}>
+          <View id={id} />
+        </Suspense>
 
         {otherStartupsBySameAuthor?.length > 0 && (
           <>
@@ -152,9 +156,6 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
             </div>
           </>
         )}
-        <Suspense fallback={<Skeleton className="view__skeleton" />}>
-          <View id={id} />
-        </Suspense>
       </section>
     </>
   );
