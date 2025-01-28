@@ -35,7 +35,7 @@ const Footer = () => {
 
           {/* GitHub */}
           <Link
-            href="https://github.com/tobiazamo"
+            href="https://github.com/tobiazamo/ycdirectory-i18n"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-md border border-white p-1 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-black"
